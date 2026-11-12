@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wyniki na żywo</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="css/wspolne.css">
+  <link rel="stylesheet" href="css/wyniki.css">
+</head>
+<body>
+  <header class="pasek">
+    <div class="tytul">Wybory na blockchainie</div>
+    <div class="faza" id="faza">Rejestracja</div>
+    <nav class="zakladki" id="zakladki">
+      <button data-zakladka="wyniki" class="aktywna"><kbd>1</kbd>Wyniki</button>
+      <button data-zakladka="porownanie"><kbd>2</kbd>Porównanie rund</button>
+      <button data-zakladka="tajnosc"><kbd>3</kbd>Tajność</button>
+    </nav>
+    <div class="na-zywo"><span class="kropka" id="kropka"></span><span id="na-zywo">na żywo z devnetu</span></div>
+  </header>
+  <div class="uklad">
+    <section class="lewa" id="lewa"></section>
+    <aside class="prawa">
+      <div class="panel qr duzy" id="qr"></div>
+      <div class="liczniki">
+        <div class="panel licznik"><div class="wartosc" id="l-zarej">0</div><div class="opis">zarejestrowani</div></div>
+        <div class="panel licznik"><div class="wartosc" id="l-glosy">0</div><div class="opis" id="l-glosy-opis">głosy w rundzie</div></div>
+      </div>
+      <div class="panel ostatnie"><h3>Ostatnie transakcje</h3><ul id="ostatnie"></ul></div>
+    </aside>
+  </div>
+
+  <script src="vendor/solana-web3.iife.min.js"></script>
+  <script src="vendor/sha256.min.js"></script>
+  <script src="vendor/qrcode.js"></script>
+  <script src="config.js?v=1794478109"></script>
+  <script src="lib/base58.js?v=1794478109"></script>
+  <script src="lib/protokol.js?v=1794478109"></script>
+  <script src="lib/siec.js?v=1794478109"></script>
+  <script src="lib/qr.js?v=1794478109"></script>
+  <script src="lib/wyniki.js?v=1794478109"></script>
+</body>
+</html>

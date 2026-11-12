@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Panel prowadzącego</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="css/wspolne.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <main>
+    <h1>Panel prowadzącego</h1>
+    <section class="karta">
+      <h2>Klucz organizatora</h2>
+      <p class="drugorzedny">Plik <span class="mono">klucze/organizator.json</span>. Zostaje tylko w pamięci tej karty.</p>
+      <input type="file" id="plik" accept=".json,application/json">
+      <p id="klucz-stan" class="drugorzedny">Nie wczytano.</p>
+    </section>
+    <section class="karta">
+      <h2>Stan</h2>
+      <div class="wiersz"><span class="drugorzedny">Ostatnia faza:</span><span class="duzo" id="faza">…</span></div>
+      <div class="wiersz"><span class="drugorzedny">Saldo sponsora:</span><span id="saldo">…</span></div>
+      <div class="wiersz"><span class="drugorzedny">Wybory:</span><span class="mono" id="e"></span></div>
+      <div class="wiersz"><a href="wyniki.html" target="_blank" rel="noopener">Ekran wyników</a><a href="index.html" target="_blank" rel="noopener">Strona do głosowania</a></div>
+    </section>
+    <section class="karta">
+      <h2>Fazy</h2>
+      <div class="wiersz"><span>Runda</span><button class="krok" data-krok="-1" aria-label="Mniej">−</button><input type="number" id="runda" min="1" max="99" value="1"><button class="krok" data-krok="1" aria-label="Więcej">+</button></div>
+      <div class="fazy" id="fazy">
+        <button data-p="reg" disabled>Rejestracja</button>
+        <button data-p="vote" disabled>Głosowanie jawne (runda <span class="nr">1</span>)</button>
+        <button data-p="commit" disabled>Głosowanie ukryte (runda <span class="nr">1</span>)</button>
+        <button data-p="reveal" disabled>Odkrywanie (runda <span class="nr">1</span>)</button>
+        <button data-p="lapowka" disabled>Łapówki: kto dostał</button>
+        <button data-p="rigreveal" disabled>Ujawnienie podmiany</button>
+        <button data-p="end" disabled>Koniec</button>
+      </div>
+      <ul class="log" id="log"></ul>
+    </section>
+  </main>
+
+  <script src="vendor/solana-web3.iife.min.js"></script>
+  <script src="vendor/sha256.min.js"></script>
+  <script src="config.js?v=1794478109"></script>
+  <script src="lib/base58.js?v=1794478109"></script>
+  <script src="lib/protokol.js?v=1794478109"></script>
+  <script src="lib/siec.js?v=1794478109"></script>
+  <script src="lib/admin.js?v=1794478109"></script>
+</body>
+</html>

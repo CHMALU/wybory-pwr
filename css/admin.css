@@ -1,0 +1,17 @@
+body { font-size: 17px; line-height: 1.4; }
+main { max-width: 760px; margin: 0 auto; padding: 24px 16px 48px; display: flex; flex-direction: column; gap: 16px; }
+h1 { margin: 0; font-size: 26px; }
+h2 { margin: 0 0 8px; font-size: 19px; }
+.karta { background: var(--karta); border-radius: 16px; padding: 18px 16px; display: flex; flex-direction: column; gap: 10px; }
+.wiersz { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.duzo { font-size: 24px; font-weight: 800; }
+.mono { font-family: ui-monospace, Menlo, monospace; font-size: 14px; word-break: break-all; }
+.fazy { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
+.fazy button, .przycisk { min-height: 56px; border: 0; border-radius: 14px; font-weight: 700; font-size: 17px; cursor: pointer; background: var(--karta-jasna); color: var(--tekst); padding: 8px 14px; }
+.fazy button.aktualna { outline: 3px solid var(--kand-b); }
+.fazy button:disabled { opacity: .45; cursor: default; }
+input[type=number] { width: 96px; min-height: 48px; font: inherit; font-size: 22px; text-align: center; color: var(--tekst); background: var(--tlo); border: 2px solid #2F3760; border-radius: 12px; }
+.krok { min-width: 48px; min-height: 48px; border-radius: 12px; border: 0; background: var(--karta-jasna); color: var(--tekst); font-size: 22px; cursor: pointer; }
+.ok { color: var(--sukces); }
+.blad { color: var(--blad); }
+ul.log { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 4px; font-size: 15px; }

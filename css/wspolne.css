@@ -1,0 +1,28 @@
+/* Wspólny wygląd (SPEC.md, „Ekrany”): ciemny motyw, kolory kandydatów, system-ui. */
+:root {
+  --tlo: #0F1222;
+  --karta: #1A1F36;
+  --karta-jasna: #242B4A;
+  --tekst: #FFFFFF;
+  --tekst-2: #A9B0D0;
+  --kand-a: #9945FF;
+  --kand-b: #00C2FF;
+  --kand-c: #14F195;
+  --blad: #FF4D5E;
+  --sukces: #14F195;
+  --promien: 16px;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--tlo);
+  color: var(--tekst);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+}
+a { color: var(--kand-b); }
+button { font: inherit; }
+.drugorzedny { color: var(--tekst-2); }
+.ukryty { display: none !important; }

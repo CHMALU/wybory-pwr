@@ -1,0 +1,105 @@
+/* Projektor 16:9: 1 rem = 20 px przy 1920×1080, 13,3 px przy 1280×720. */
+html { font-size: min(1.0417vw, 1.852vh); }
+body { height: 100vh; overflow: hidden; display: flex; flex-direction: column; font-size: 1rem; }
+.pasek { display: flex; align-items: center; gap: 2rem; padding: 1.1rem 2rem; background: var(--karta); border-bottom: 0.1rem solid #2A3155; }
+.pasek .tytul { font-size: 1.6rem; font-weight: 700; white-space: nowrap; }
+.pasek .faza { font-size: 2rem; font-weight: 800; white-space: nowrap; }
+.zakladki { display: flex; gap: 0.6rem; margin-left: auto; }
+.zakladki button { background: transparent; color: var(--tekst-2); border: 0.1rem solid #2F3760; border-radius: 0.8rem; padding: 0.5rem 1rem; font-size: 1.2rem; cursor: pointer; white-space: nowrap; }
+.zakladki button.aktywna { background: var(--karta-jasna); color: var(--tekst); border-color: var(--kand-b); }
+.zakladki kbd { font-family: inherit; font-size: 0.9rem; color: var(--tekst-2); margin-right: 0.4rem; }
+.na-zywo { display: flex; align-items: center; gap: 0.6rem; font-size: 1.2rem; color: var(--tekst-2); white-space: nowrap; }
+.kropka { width: 1rem; height: 1rem; border-radius: 50%; background: var(--sukces); box-shadow: 0 0 0 0 rgba(20, 241, 149, .6); animation: puls 1.8s infinite; }
+.kropka.blad { background: var(--blad); animation: none; }
+@keyframes puls { 0% { box-shadow: 0 0 0 0 rgba(20, 241, 149, .6); } 70% { box-shadow: 0 0 0 0.8rem rgba(20, 241, 149, 0); } 100% { box-shadow: 0 0 0 0 rgba(20, 241, 149, 0); } }
+
+.uklad { flex: 1; min-height: 0; display: grid; grid-template-columns: 60fr 40fr; gap: 1.6rem; padding: 1.6rem 2rem; }
+.lewa { min-width: 0; min-height: 0; background: var(--karta); border-radius: 1.2rem; padding: 2rem 2.4rem; display: flex; flex-direction: column; gap: 1.6rem; overflow: hidden; }
+.prawa { min-width: 0; min-height: 0; display: flex; flex-direction: column; gap: 1.2rem; }
+.panel { background: var(--karta); border-radius: 1.2rem; padding: 1.2rem 1.6rem; }
+
+h1.pytanie { font-size: 3rem; line-height: 1.15; margin: 0; }
+.podtytul { font-size: 1.6rem; color: var(--tekst-2); }
+
+/* słupki poziome */
+.slupki { display: flex; flex-direction: column; gap: 2rem; flex: 1; justify-content: center; }
+.slupek .etykieta { display: flex; align-items: baseline; gap: 1rem; font-size: 2.2rem; font-weight: 700; margin-bottom: 0.6rem; }
+.slupek .etykieta .litera { display: inline-flex; width: 2.8rem; height: 2.8rem; border-radius: 50%; align-items: center; justify-content: center; font-size: 1.6rem; color: var(--tlo); flex: 0 0 auto; align-self: center; }
+.slupek .etykieta .nazwa { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.slupek .etykieta .liczby { margin-left: auto; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.slupek .etykieta .liczby .proc { color: var(--tekst-2); font-size: 1.8rem; margin-left: 0.8rem; }
+.slupek .tor { height: 3.6rem; background: var(--tlo); border-radius: 0.8rem; overflow: hidden; }
+.slupek .wypelnienie { height: 100%; border-radius: 0.8rem; transition: width .6s ease; min-width: 0.4rem; }
+
+.wielka-liczba { font-size: 12rem; font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; }
+.srodek-panelu { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.2rem; text-align: center; }
+.srodek-panelu .opis { font-size: 2.4rem; font-weight: 700; }
+.lista-kandydatow { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+.chip { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.5rem 1.1rem 0.5rem 0.5rem; border-radius: 2rem; background: var(--karta-jasna); font-size: 1.6rem; font-weight: 700; white-space: nowrap; }
+.chip .litera { display: inline-flex; width: 2.2rem; height: 2.2rem; border-radius: 50%; align-items: center; justify-content: center; color: var(--tlo); font-size: 1.2rem; }
+
+/* prawa kolumna */
+.qr { display: flex; flex-direction: column; align-items: center; gap: 0.8rem; }
+.qr .ramka { background: #FFFFFF; border-radius: 1rem; padding: 0.8rem; }
+.qr .ramka svg { display: block; width: 100%; height: 100%; }
+.qr.duzy .ramka { width: 24rem; height: 24rem; }
+.qr.maly { flex-direction: row; gap: 1.2rem; }
+.qr.maly .ramka { width: 10rem; height: 10rem; flex: 0 0 auto; padding: 0.5rem; }
+.qr .adres-strony { font-size: 1.4rem; font-weight: 600; word-break: break-all; text-align: center; }
+.qr.maly .adres-strony { text-align: left; }
+.qr .zacheta { font-size: 1.8rem; font-weight: 800; }
+.liczniki { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+.licznik .wartosc { font-size: 3.6rem; font-weight: 800; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.licznik .opis { font-size: 1.3rem; color: var(--tekst-2); }
+.ostatnie { flex: 1; min-height: 0; overflow: hidden; display: flex; flex-direction: column; gap: 0.6rem; }
+.ostatnie h3 { margin: 0; font-size: 1.3rem; color: var(--tekst-2); font-weight: 600; }
+.ostatnie ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.4rem; overflow: hidden; }
+.ostatnie li { display: flex; align-items: center; gap: 1rem; font-size: 1.35rem; padding: 0.35rem 0; border-bottom: 0.05rem solid #2A3155; }
+.ostatnie li .adr { font-family: ui-monospace, Menlo, monospace; }
+.ostatnie li .typ { color: var(--tekst-2); }
+.ostatnie li a { margin-left: auto; font-size: 1.2rem; text-decoration: none; }
+
+/* porównanie rund */
+.porownanie { flex: 1; min-height: 0; display: flex; gap: 2.4rem; align-items: stretch; justify-content: center; }
+.kolumna-rundy { flex: 1; max-width: 22rem; display: flex; flex-direction: column; gap: 1rem; }
+.kolumna-rundy .naglowek { font-size: 1.8rem; font-weight: 800; text-align: center; }
+.kolumna-rundy .naglowek small { display: block; font-size: 1.2rem; color: var(--tekst-2); font-weight: 600; }
+.kolumna-rundy .wykres { flex: 1; display: flex; align-items: flex-end; gap: 1rem; border-bottom: 0.15rem solid #2F3760; padding: 0 0.6rem; }
+.pion { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; gap: 0.4rem; }
+.pion .wart { font-size: 1.6rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+.pion .proc { font-size: 1.15rem; color: var(--tekst-2); }
+.pion .bar { width: 100%; border-radius: 0.6rem 0.6rem 0 0; transition: height .6s ease; min-height: 0.3rem; }
+.kolumna-rundy .litery { display: flex; gap: 1rem; padding: 0 0.6rem; }
+.kolumna-rundy .litery span { flex: 1; text-align: center; font-size: 1.6rem; font-weight: 800; }
+.legenda { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+/* tajność */
+.tabela-ramka { flex: 1; min-height: 0; overflow-y: auto; }
+table.tajnosc { width: 100%; border-collapse: collapse; font-size: 1.45rem; table-layout: fixed; }
+table.tajnosc th { position: sticky; top: 0; background: var(--karta); text-align: left; font-size: 1.3rem; color: var(--tekst-2); font-weight: 600; padding: 0.6rem 0.6rem; border-bottom: 0.1rem solid #2F3760; }
+table.tajnosc td { padding: 0.45rem 0.6rem; border-bottom: 0.05rem solid #2A3155; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+table.tajnosc td.nick { font-weight: 700; font-size: 1.6rem; }
+table.tajnosc td.adr { font-family: ui-monospace, Menlo, monospace; color: var(--tekst-2); font-size: 1.3rem; text-overflow: clip; }
+.glos { display: inline-flex; align-items: center; gap: 0.45rem; font-size: 1.35rem; max-width: 100%; }
+.glos .litera { display: inline-flex; width: 1.8rem; height: 1.8rem; border-radius: 50%; align-items: center; justify-content: center; color: var(--tlo); font-size: 1.1rem; font-weight: 800; flex: 0 0 auto; }
+.glos.zaszyfrowany { color: var(--tekst-2); font-style: italic; }
+.pusto { font-size: 2rem; color: var(--tekst-2); text-align: center; margin: auto; }
+
+/* tajność: duża sala (tryb kompaktowy, dwie kolumny) */
+.lewa.kompakt { gap: 0.8rem; padding: 1.4rem 2rem; }
+.lewa.kompakt h1.pytanie { font-size: 2.2rem; }
+.lewa.kompakt .podtytul { font-size: 1.2rem; }
+.legenda.kompakt { justify-content: flex-start; gap: 0.8rem; }
+.legenda.kompakt .chip { font-size: 1.2rem; padding: 0.3rem 0.9rem 0.3rem 0.3rem; }
+.legenda.kompakt .chip .litera { width: 1.7rem; height: 1.7rem; font-size: 1rem; }
+.tabela-ramka.dwie { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6rem; align-items: start; }
+table.tajnosc.kompakt { font-size: 1rem; line-height: 1.15; }
+table.tajnosc.kompakt th { font-size: 0.95rem; padding: 0.2rem 0.4rem; }
+table.tajnosc.kompakt td { padding: 0.05rem 0.4rem; }
+table.tajnosc.kompakt td.nick { font-size: 1rem; }
+table.tajnosc.kompakt td.adr { font-size: 0.95rem; }
+table.tajnosc.kompakt .glos { font-size: 1rem; }
+table.tajnosc.kompakt .glos .litera { width: 1.15rem; height: 1.15rem; font-size: 0.75rem; }
+table.tajnosc tr.boty td { color: var(--tekst-2); font-style: italic; }
+table.tajnosc tr.boty td.rozklad { font-style: normal; color: var(--tekst); white-space: nowrap; }
+table.tajnosc tr.boty .glos b { margin-left: 0.15rem; }

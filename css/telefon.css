@@ -1,0 +1,83 @@
+/* Telefon: mobile first od 360 px, odstęp boczny 16 px, przyciski min. 56 px, zaokrąglenie 16 px. */
+body { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; font-size: 17px; line-height: 1.4; }
+.pasek {
+  position: sticky; top: 0; z-index: 5;
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  padding: 12px 16px; background: var(--karta); border-bottom: 1px solid #2A3155;
+}
+.pasek .tytul { font-weight: 700; font-size: 15px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.pasek .faza { font-size: 14px; color: var(--tekst-2); text-align: right; white-space: nowrap; flex: 0 0 auto; }
+main { flex: 1; width: 100%; max-width: 560px; margin: 0 auto; padding: 20px 16px 24px; display: flex; flex-direction: column; gap: 16px; }
+.stopka { padding: 12px 16px calc(12px + env(safe-area-inset-bottom)); text-align: center; font-size: 13px; color: var(--tekst-2); }
+
+h1 { font-size: 26px; line-height: 1.2; margin: 0; }
+h2 { font-size: 20px; margin: 0; }
+p { margin: 0; }
+.karta { background: var(--karta); border-radius: var(--promien); padding: 20px 16px; display: flex; flex-direction: column; gap: 12px; }
+.srodek { text-align: center; align-items: center; }
+.adres { font-family: ui-monospace, "SFMono-Regular", Menlo, monospace; font-size: 18px; background: var(--tlo); border-radius: 12px; padding: 10px 14px; align-self: flex-start; }
+
+label { font-weight: 600; font-size: 16px; }
+input[type=text] {
+  width: 100%; min-height: 56px; padding: 0 16px; font: inherit; font-size: 18px;
+  color: var(--tekst); background: var(--tlo); border: 2px solid #2F3760; border-radius: var(--promien);
+}
+input[type=text]:focus { outline: none; border-color: var(--kand-b); }
+
+.przycisk {
+  display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; min-height: 56px;
+  padding: 12px 20px; border: 0; border-radius: var(--promien); cursor: pointer;
+  font-size: 18px; font-weight: 700; text-decoration: none; text-align: center;
+  background: var(--kand-b); color: var(--tlo);
+}
+.przycisk.drugi { background: var(--karta-jasna); color: var(--tekst); }
+.przycisk:disabled { opacity: .5; cursor: default; }
+.przycisk:active { transform: scale(.99); }
+
+.kandydaci { display: flex; flex-direction: column; gap: 12px; }
+.kandydat {
+  display: flex; align-items: center; gap: 16px; width: 100%; min-height: 88px; padding: 16px;
+  border: 0; border-radius: var(--promien); cursor: pointer; text-align: left;
+  font-size: 22px; font-weight: 700; line-height: 1.2;
+}
+.kandydat .litera {
+  flex: 0 0 auto; width: 48px; height: 48px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px; font-weight: 800; background: rgba(15, 18, 34, .22);
+}
+.pytanie { font-size: 24px; }
+.uwaga { background: var(--karta-jasna); border-radius: 12px; padding: 12px 14px; font-weight: 600; }
+
+.duzy-znak { width: 72px; height: 72px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px; font-weight: 800; }
+.duzy-znak.ok { background: var(--sukces); color: var(--tlo); }
+.duzy-znak.zamek { background: var(--karta-jasna); color: var(--tekst); }
+.wybor { font-size: 20px; }
+.wybor b { white-space: nowrap; }
+
+.kolko { width: 56px; height: 56px; border: 5px solid var(--karta-jasna); border-top-color: var(--kand-b); border-radius: 50%; animation: obrot 0.9s linear infinite; }
+@keyframes obrot { to { transform: rotate(360deg); } }
+.blad-tekst { color: var(--blad); font-weight: 600; }
+
+/* nakładki pełnoekranowe */
+.nakladka { position: fixed; inset: 0; z-index: 20; display: flex; flex-direction: column; overflow-y: auto; }
+.nakladka .tresc { flex: 1; width: 100%; max-width: 560px; margin: 0 auto; padding: 32px 16px; display: flex; flex-direction: column; justify-content: center; gap: 18px; }
+.nakladka.czerwona { background: var(--blad); color: #FFFFFF; }
+.nakladka.zielona { background: var(--sukces); color: var(--tlo); }
+.nakladka.czerwona h1, .nakladka.zielona h1 { font-size: 32px; }
+.nakladka .wiersz { font-size: 22px; line-height: 1.35; }
+.nakladka .przycisk.bialy { background: #FFFFFF; color: var(--tlo); }
+.nakladka .przycisk.ciemny { background: var(--tlo); color: #FFFFFF; }
+.nakladka.dowod { background: var(--tlo); }
+.qr-ramka { background: #FFFFFF; border-radius: var(--promien); padding: 16px; width: 100%; max-width: 360px; align-self: center; }
+.qr-ramka svg { display: block; width: 100%; height: auto; }
+.mono { font-family: ui-monospace, "SFMono-Regular", Menlo, monospace; word-break: break-all; font-size: 14px; }
+
+details { background: var(--karta); border-radius: var(--promien); padding: 0 16px; }
+details summary { min-height: 56px; display: flex; align-items: center; font-weight: 700; cursor: pointer; list-style: none; }
+details summary::-webkit-details-marker { display: none; }
+details summary::after { content: "▾"; margin-left: auto; color: var(--tekst-2); }
+details[open] summary::after { content: "▴"; }
+details .wnetrze { display: flex; flex-direction: column; gap: 12px; padding-bottom: 16px; }
+textarea.klucz { width: 100%; min-height: 96px; font-family: ui-monospace, Menlo, monospace; font-size: 13px; color: var(--tekst); background: var(--tlo); border: 2px solid #2F3760; border-radius: 12px; padding: 10px; resize: none; word-break: break-all; }
+.ostrzezenie { border-left: 4px solid var(--blad); padding: 8px 12px; background: rgba(255, 77, 94, .12); border-radius: 8px; }
+.saldo { font-size: 30px; font-weight: 800; }
